@@ -6,7 +6,7 @@ export default function ResumePage() {
   return (
     <>
       <style>{`
-        /* ── PRINT — fill entire A4 page ── */
+        /* ── PRINT — full A4, same font sizes as screen ── */
         @media print {
           .no-print { display: none !important; }
 
@@ -25,7 +25,7 @@ export default function ResumePage() {
             background: #fff !important;
           }
 
-          /* Card fills full A4 as flex column */
+          /* Card = exact A4, flex column */
           .resume-card {
             box-shadow: none !important;
             border-radius: 0 !important;
@@ -37,26 +37,23 @@ export default function ResumePage() {
             overflow: hidden !important;
           }
 
-          /* Header compact */
-          .resume-header { padding: 16px 22px !important; flex-shrink: 0 !important; }
-          .resume-header h1 { font-size: 20px !important; }
-          .resume-header-sub { font-size: 10px !important; margin-top: 4px !important; }
-          .resume-contacts { margin-top: 10px !important; gap: 10px !important; }
-          .resume-contacts span { font-size: 9px !important; }
-          .resume-avatar { width: 56px !important; height: 56px !important; }
+          /* Header — tighten padding only, keep font sizes */
+          .resume-header { padding: 18px 24px !important; flex-shrink: 0 !important; }
+          .resume-contacts { margin-top: 8px !important; gap: 10px !important; }
+          .resume-avatar { width: 62px !important; height: 62px !important; }
 
-          /* Body fills all remaining height */
+          /* Body fills remaining height */
           .resume-body {
             display: grid !important;
-            grid-template-columns: 190px 1fr !important;
+            grid-template-columns: 200px 1fr !important;
             flex: 1 !important;
             min-height: 0 !important;
             align-items: stretch !important;
           }
 
-          /* Both columns fill full height with flex so content spreads */
+          /* Columns fill full height, spread sections */
           .resume-col-left {
-            padding: 16px 16px !important;
+            padding: 18px 18px !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
@@ -65,7 +62,7 @@ export default function ResumePage() {
           }
 
           .resume-col-right {
-            padding: 16px 20px !important;
+            padding: 18px 22px !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
@@ -73,57 +70,27 @@ export default function ResumePage() {
             overflow: hidden !important;
           }
 
-          /* Remove bottom margins from last items (flex handles spacing) */
+          /* Let flex spacing handle gaps instead of margins */
           .resume-col-left > div { margin-bottom: 0 !important; }
           .resume-col-right > div { margin-bottom: 0 !important; }
 
-          /* Section titles */
-          .sec-title { font-size: 9px !important; margin-bottom: 2px !important; }
-          .sec-line  { height: 1px !important; margin-bottom: 8px !important; }
+          /* Tighten section title spacing only */
+          .sec-title { margin-bottom: 2px !important; }
+          .sec-line  { margin-bottom: 8px !important; }
 
-          /* Profile text */
-          .resume-col-left p { font-size: 9px !important; line-height: 1.6 !important; }
+          /* Tighten skill bar spacing */
+          .skill-row { margin-bottom: 7px !important; }
 
-          /* Skill bars */
-          .skill-row { margin-bottom: 8px !important; }
-          .skill-label span { font-size: 9px !important; }
-          .skill-track { height: 5px !important; }
+          /* Tighten experience spacing */
+          .exp-card { margin-bottom: 0 !important; }
+          .exp-list { margin-top: 4px !important; }
+          .exp-list li { margin-bottom: 2px !important; }
 
-          /* Tech tags */
-          .tech-tag  { font-size: 8px !important; padding: 2px 7px !important; }
-          .tech-tags { gap: 4px !important; }
+          /* Tighten education spacing */
+          .edu-card { margin-bottom: 0 !important; }
 
-          /* Languages */
-          .lang-row { font-size: 9px !important; margin-bottom: 5px !important; }
-
-          /* Experience */
-          .exp-card    { margin-bottom: 0 !important; padding-left: 10px !important; }
-          .exp-role    { font-size: 11px !important; }
-          .exp-company { font-size: 9px !important; }
-          .exp-badge   { font-size: 9px !important; padding: 2px 7px !important; }
-          .exp-list    { margin-top: 5px !important; padding-left: 12px !important; }
-          .exp-list li { font-size: 9px !important; line-height: 1.6 !important; margin-bottom: 2px !important; }
-
-          /* Education */
-          .edu-card   { margin-bottom: 0 !important; padding-left: 10px !important; }
-          .edu-degree { font-size: 11px !important; }
-          .edu-inst   { font-size: 9px !important; }
-          .edu-note   { font-size: 8px !important; }
-          .edu-badge  { font-size: 9px !important; padding: 2px 7px !important; }
-
-          /* Projects */
-          .proj-row  { padding: 6px 0 !important; }
-          .proj-name { font-size: 11px !important; }
-          .proj-tech { font-size: 9px !important; }
-          .proj-url  { font-size: 9px !important; }
-
-          /* Experience wrapper — space-between to spread cards */
-          .exp-section-inner {
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: space-between !important;
-            gap: 0 !important;
-          }
+          /* Tighten language spacing */
+          .lang-row { margin-bottom: 5px !important; }
         }
         @page { margin: 0; size: A4 portrait; }
 
