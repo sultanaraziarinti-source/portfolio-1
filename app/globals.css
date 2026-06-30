@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: #fff; color: #111827; font-family: 'Inter', Arial, sans-serif; overflow-x: hidden; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+.fade-up  { animation: fadeUp 0.8s ease both; }
+.floating { animation: float 5s ease-in-out infinite; }
+
+.grad-text {
+  background: linear-gradient(135deg, #2563EB, #7C3AED, #DB2777);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-x 5s ease infinite;
+}
+
+.section-tag {
+  display: inline-block;
+  background: #EFF6FF;
+  color: #2563EB;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ── RESPONSIVE LAYOUT HELPERS ── */
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+
+.form-name-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stats-bar {
+  display: flex;
+  border-top: 1px solid #E5E7EB;
+  padding-top: 32px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.about-img-wrap {
+  position: relative;
+}
+
+.about-float-card {
+  position: absolute;
+  bottom: 32px;
+  right: -24px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  border: 1px solid #F3F4F6;
+  min-width: 180px;
+}
+
+.section-pad {
+  padding: 100px 24px;
+}
+
+.timeline-wrap {
+  position: relative;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #2563EB, #7C3AED, #DB2777);
+  border-radius: 2px;
+}
+
+.timeline-items {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-left: 64px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -48px;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2563EB;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.2);
+}
+
+/* ── TABLET (max 1024px) ── */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+  .about-float-card {
+    right: 16px;
+    bottom: 16px;
+  }
+  .hero-btns {
+    justify-content: center;
+  }
+  .stats-bar {
+    justify-content: center;
+  }
+}
+
+/* ── MOBILE (max 640px) ── */
+@media (max-width: 640px) {
+  .section-pad {
+    padding: 64px 16px;
+  }
+  .form-name-grid {
+    grid-template-columns: 1fr;
+  }
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-btns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-btns a,
+  .hero-btns button {
+    text-align: center;
+    justify-content: center;
+  }
+  .stats-bar > div {
+    padding: 0 8px;
+  }
+  .about-float-card {
+    position: static;
+    margin-top: 16px;
+  }
+  .timeline-line {
+    left: 16px;
+  }
+  .timeline-items {
+    padding-left: 44px;
+  }
+  .timeline-dot {
+    left: -36px;
+  }
+  .footer-grid > div:last-child {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
